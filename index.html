@@ -16,5 +16,13 @@
   <div id="app"></div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="app.js?v=16"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .catch(error => console.error('Service Worker registration failed:', error));
+      });
+    }
+  </script>
 </body>
 </html>
